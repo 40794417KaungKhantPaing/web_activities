@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalized Cookie Site</title>
+</head>
+<body>
+    <div id="welcome-msg"></div>
+    
+    <form id="userForm">
+        <input type="text" id="nameInput" placeholder="Enter Name">
+        <select id="moodInput">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+        </select>
+        <button type="button" onclick="saveAndRefresh()">Save Preferences</button>
+    </form>
+
+    <script src="cookies.js"></script> <script>
+        function saveAndRefresh() {
+            var name = document.getElementById('nameInput').value;
+            var mood = document.getElementById('moodInput').value;
+            
+            setCookie("username", name, 7); // Save for 7 days
+            setCookie("mood", mood, 7);
+            location.reload(); // Refresh page to show changes
+        }
+
+        // On Page Load
+        window.onload = function() {
+            var savedName = getCookie("username");
+            var savedMood = getCookie("mood");
+
+            if (savedName != "") {
+                var msg = "Hello " + savedName + "! ";
+                msg += (savedMood === "happy") ? "Glad you're having a great day!" : "Hope things get better soon.";
+                document.getElementById("welcome-msg").innerHTML = "<h1>" + msg + "</h1>";
+            }
+        }
+    </script>
+</body>
+</html>

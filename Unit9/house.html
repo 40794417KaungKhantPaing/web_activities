@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Activity 2.3 Challenge - House and Sun</title>
+    <style>
+        /* Highlight the canvas area with the tomato border from the activity */
+        #my_canvas { border: 1px solid tomato; background-color: #e0f7fa; } 
+    </style>
+</head>
+<body>
+    <canvas id="my_canvas" width="400" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById("my_canvas");
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            // 1. Draw the Sun (using arc)
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            // Context arc(x, y, radius, startAngle, endAngle, anticlockwise)
+            ctx.arc(320, 70, 40, 0, Math.PI * 2, true); 
+            ctx.fill();
+
+            // 2. Draw the House Base (using fillRect)
+            ctx.fillStyle = "brown";
+            // Context fillRect(x, y, width, height)
+            ctx.fillRect(100, 200, 200, 150); 
+
+            // 3. Draw the Roof (using paths and lines)
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo(100, 200);  // Left corner of house
+            ctx.lineTo(200, 100);  // Peak of roof
+            ctx.lineTo(300, 200);  // Right corner of house
+            ctx.closePath();
+            ctx.fill();
+            // Add a black outline for definition
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // 4. Draw the Door (using fillRect)
+            ctx.fillStyle = "black";
+            ctx.fillRect(175, 270, 50, 80); 
+
+            // 5. Draw Windows (using iterative lines/rects)
+            ctx.fillStyle = "white";
+            ctx.fillRect(120, 230, 40, 40); // Left window
+            ctx.fillRect(240, 230, 40, 40); // Right window
+
+        } else {
+            // Replacement message for unsupported browsers
+            alert("Your browser does not support the HTML5 canvas tag.");
+        }
+    </script>
+</body>
+</html>

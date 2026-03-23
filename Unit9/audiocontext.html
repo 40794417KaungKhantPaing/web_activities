@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+    <script>
+        var context = new (window.AudioContext || window.webkitAudioContext)();
+        var oscillator = context.createOscillator();
+        oscillator.connect(context.destination);
+        oscillator.start();
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interacting with the Window</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        var out = document.getElementById("output");
+
+        // 1. Browser Details
+        out.innerHTML += "<h3>Browser Info:</h3>";
+        out.innerHTML += "Name: " + window.navigator.appName + "<br>";
+        out.innerHTML += "Version: " + window.navigator.appVersion + "<br>";
+
+        // 2. URL Details
+        out.innerHTML += "<h3>Location Info:</h3>";
+        out.innerHTML += "URL: " + window.location.href + "<br>";
+        out.innerHTML += "Path: " + window.location.pathname + "<br>";
+
+        // 3. Log all window properties to Console (F12 to view)
+        for (property in window) {
+            if (property) { console.log(property); }
+        }
+    </script>
+</body>
+</html>

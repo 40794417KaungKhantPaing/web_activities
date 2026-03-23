@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interacting with the DOM</title>
+    <style>
+        .red-text { color: red; }
+        .blue-text { color: blue; }
+    </style>
+</head>
+<body>
+    <p><a href="#" onClick="addMessage();">Add Message</a></p>
+    <p><a href="#" onClick="colourChanger();">Change Color</a></p>
+    
+    <h1>OUTPUT:</h1>
+    <div id="output"></div>
+    <p id="colorPara" class="red-text">I change colors!</p>
+
+    <script>
+        // Part 1: Adding content
+        function addMessage() {
+            // Using += appends new content instead of overwriting
+            document.getElementById("output").innerHTML += "<p>HELLO WORLD</p>";
+        }
+
+        // Part 2: Toggling colors
+        var current = "red";
+        function colourChanger() {
+            var para = document.getElementById("colorPara");
+            if (current === "red") {
+                current = "blue";
+            } else {
+                current = "red";
+            }
+            para.style.color = current;
+        }
+    </script>
+</body>
+</html>

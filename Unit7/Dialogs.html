@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interacting with the user</title>
+</head>
+<body>
+    <script>
+        // 1. Alert (Notification only)
+        window.alert('Welcome to the site!');
+
+        // 2. Confirm (Yes/No)
+        var choice = window.confirm('Do you want to continue?');
+        console.log("User chose: " + choice);
+
+        // 3. Prompt (Text Input)
+        var name = window.prompt('What is your name?');
+        if (name != null && name != "") {
+            console.log("Hello " + name);
+            document.body.innerHTML += "<h1>Welcome, " + name + "!</h1>";
+        }
+    </script>
+</body>
+</html>
